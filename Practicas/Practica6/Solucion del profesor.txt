@@ -1,0 +1,48 @@
+% Sol. pract. 3
+
+% parameters
+int: N=5; % num.trabajadores
+int: D=7; % num. dias semana
+int: MaxH=8; % max. horas de trabajo al dia por trabajador
+
+% 1
+array [1..N,1..D] of var 0..MaxH:t;  % para obtener el resultados
+
+% 2  horas que trabaja cada persona en total tras los D dias
+array [1..N] of var 0..MaxH*D:horasPersona; 
+
+% 4 horas de trabajo por dia entre todos los trabajadores
+array [1..D] of var 0..MaxH*N:horasDia;
+
+% 3
+constraint forall(i in 1..N)( horasPersona[i] = sum(j in 1..D)(t[i,j]));
+
+% 5
+constraint forall(j in 1..D)( horasDia[j] = sum(i in 1..N)(t[i,j]));
+
+% 6
+constraint forall(i in 1..N)(exists(j in 1..D)(t[i,j]=0));
+
+% 7
+constraint forall(i in 1..N)(horasPersona[i]>=MaxH*(D-3));
+
+%8
+constraint forall(i in 1..N)(forall(j in 1..D-1)((t[i,j]<MaxH) \/ (t[i,j]=MaxH /\ t[i,j+1]<MaxH)));
+
+% 9
+%constraint sum(horasPersona)>=225;
+
+% 9
+constraint  sum(t) >= 225;
+
+%solve satisfy;
+
+% 10
+var 1..D: dias;
+constraint forall(i in 1..D)((i<=dias /\ horasDia[i]!=0) \/ (i>dias /\ horasDia[i]=0));
+
+solve minimize dias;
+
+
+
+

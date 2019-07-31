@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration version="1.0" directory="examples/bridge/RESULT" 
+               xsi:noNamespaceSchemaLocation="configuration.xsd" 
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<tool show="tree" type="layout" display="compact" repeat="final" 
+              width="700" height="700" fileroot="tree"  />
+</configuration>

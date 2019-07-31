@@ -1,0 +1,4 @@
+<configuration version="1.0" directory="output" xsi:noNamespaceSchemaLocation="configuration.xsd">
+<tool show="tree" type="layout" display="expanded" repeat="all" width="700" height="700" fileroot="tree"/>
+<tool show="viz" type="layout" display="expanded" repeat="all" width="700" height="700" fileroot="viz"/>
+</configuration>

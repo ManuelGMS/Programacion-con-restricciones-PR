@@ -1,0 +1,5 @@
+for i in $* 
+do
+echo inkscapec -A ${i%.*}.pdf $i
+inkscapec -A ${i%.*}.pdf $i
+done
